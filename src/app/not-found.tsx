@@ -1,6 +1,15 @@
+"use client";
+
+import { useEffect } from "react";
 import JellyButton from "@/components/JellyButton";
 
 export default function NotFound() {
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.href.includes("&alias=")) {
+      window.location.replace("/new-dairy-classics/");
+    }
+  }, []);
+
   return (
     <section className="flex min-h-[80vh] flex-col items-center justify-center px-4 pt-24 text-center" data-flood="#FFD9E1">
       <p className="inflated font-display text-[clamp(120px,24vw,280px)] font-extrabold leading-none">404</p>
